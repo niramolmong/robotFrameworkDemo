@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.1 (Python 3.9.7 on darwin)" generated="20211015 18:33:24.302" rpa="false" schemaversion="2">
+<suite id="s1" name="Robot 2" source="/Users/niramol.mo/robot_framework/robot_2.robot">
+<test id="s1-t1" name="Get user profile success">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{params}</var>
+<arg>id=12</arg>
+<arg>email=rachel.howell@reqres.in</arg>
+<arg>first_name=Rachel</arg>
+<arg>last_name=Howell</arg>
+<arg>avatar=https://reqres.in/img/faces/12-image.jpg</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20211015 18:33:24.497" level="INFO">&amp;{params} = { id=12 | email=rachel.howell@reqres.in | first_name=Rachel | last_name=Howell | avatar=https://reqres.in/img/faces/12-image.jpg }</msg>
+<status status="PASS" starttime="20211015 18:33:24.497" endtime="20211015 18:33:24.497"/>
+</kw>
+<kw name="Get response case success">
+<var>${response}</var>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>my_session</arg>
+<arg>${url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20211015 18:33:24.498" level="INFO">Creating Session using : alias=my_session, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20211015 18:33:24.498" endtime="20211015 18:33:24.498"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>my_session</arg>
+<arg>${path_success}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20211015 18:33:24.499" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20211015 18:33:24.586" level="INFO">GET Request : url=https://reqres.in/api/users/12 
+ path_url=/api/users/12 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20211015 18:33:24.586" level="INFO">GET Response : url=https://reqres.in/api/users/12 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 15 Oct 2021 11:33:24 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'etag': 'W/"11c-Y8Nrcu5DO2DrJvfp3zc2PKGiar4"', 'via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '514', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=nD8nJ3P9licGHfBmjApQfC2wC3zqxRn2aZY1n6FmVc5EeMb9khtIEvwDOy47cmg9GU%2FYvDVIzHx%2BN33aO4vRNp5CcHkSIkwL%2FhIFFoE9pR0b2suLe7rvSQ7%2BA5lWcpe5iOoi4ezZzFA%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '69e8bb7d3ef34b65-BKK', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400, h3-28=":443"; ma=86400, h3-27=":443"; ma=86400'} 
+ body={"data":{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg timestamp="20211015 18:33:24.586" level="INFO">/Users/niramol.mo/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20211015 18:33:24.586" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211015 18:33:24.499" endtime="20211015 18:33:24.586"/>
+</kw>
+<kw name="Return From Keyword" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<msg timestamp="20211015 18:33:24.587" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20211015 18:33:24.586" endtime="20211015 18:33:24.588"/>
+</kw>
+<msg timestamp="20211015 18:33:24.588" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211015 18:33:24.497" endtime="20211015 18:33:24.588"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20211015 18:33:24.590" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20211015 18:33:24.589" endtime="20211015 18:33:24.590"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nExpected result: 1. Verify response status code should be ‘200’</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20211015 18:33:24.590" endtime="20211015 18:33:24.591"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${params.id}</arg>
+<arg>12</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20211015 18:33:24.591" endtime="20211015 18:33:24.592"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${params.email}</arg>
+<arg>rachel.howell@reqres.in</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20211015 18:33:24.592" endtime="20211015 18:33:24.593"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${params.first_name}</arg>
+<arg>Rachel</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20211015 18:33:24.593" endtime="20211015 18:33:24.594"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${params.last_name}</arg>
+<arg>Howell</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20211015 18:33:24.594" endtime="20211015 18:33:24.596"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${params.avatar}</arg>
+<arg>https://reqres.in/img/faces/12-image.jpg</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20211015 18:33:24.597" endtime="20211015 18:33:24.598"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nExpected result: 2. Compare the response body with expected. ‘ID’ == 12, ‘Email’ == rachel.howell@reqres.in, \n‘First Name’ == Rachel, ‘Last Name’ == Howell, ‘Avatar’ == https://reqres.in/img/faces/12-image.jpg</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20211015 18:33:24.598" endtime="20211015 18:33:24.599"/>
+</kw>
+<status status="PASS" starttime="20211015 18:33:24.496" endtime="20211015 18:33:24.599"/>
+</test>
+<test id="s1-t2" name="Get user profile not found">
+<kw name="Get response case user not found">
+<var>${response}</var>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>my_session</arg>
+<arg>${url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20211015 18:33:24.601" level="INFO">Creating Session using : alias=my_session, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20211015 18:33:24.601" endtime="20211015 18:33:24.601"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>my_session</arg>
+<arg>${path_user_not_found}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20211015 18:33:24.601" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20211015 18:33:25.118" level="INFO">GET Request : url=https://reqres.in/api/users/1234 
+ path_url=/api/users/1234 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20211015 18:33:25.119" level="INFO">GET Response : url=https://reqres.in/api/users/1234 
+ status=404, reason=Not Found 
+ headers={'Date': 'Fri, 15 Oct 2021 11:33:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2', 'Connection': 'keep-alive', 'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'EXPIRED', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=iYtaAFq1LppB9dADP62p5v0O1CDavj2vGhmsMa4wk8L0C%2B%2FEZMxFuZLisJ%2F%2BoZcKRxgIKpTzXXZrb28cZn5YgBo5XKl5nx7oX9mwsUWfwPegm96ra0WS2OBVzP5HjMxoMdl9zy4ZLWQ%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '69e8bb7da9e74b82-BKK', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400, h3-28=":443"; ma=86400, h3-27=":443"; ma=86400'} 
+ body={} 
+ </msg>
+<msg timestamp="20211015 18:33:25.119" level="INFO">/Users/niramol.mo/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20211015 18:33:25.119" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20211015 18:33:24.601" endtime="20211015 18:33:25.119"/>
+</kw>
+<kw name="Return From Keyword" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<msg timestamp="20211015 18:33:25.120" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20211015 18:33:25.119" endtime="20211015 18:33:25.120"/>
+</kw>
+<msg timestamp="20211015 18:33:25.121" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20211015 18:33:24.600" endtime="20211015 18:33:25.121"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20211015 18:33:25.121" endtime="20211015 18:33:25.122"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>404</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20211015 18:33:25.123" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20211015 18:33:25.122" endtime="20211015 18:33:25.124"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nExpected result: 1. Verify response status code should be ‘404’</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20211015 18:33:25.124" endtime="20211015 18:33:25.124"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.content}</arg>
+<arg>{}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20211015 18:33:25.125" level="INFO">Argument types are:
+&lt;class 'bytes'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20211015 18:33:25.124" endtime="20211015 18:33:25.125"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nExpected result: 2.Response body should be '{}'</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20211015 18:33:25.126" endtime="20211015 18:33:25.126"/>
+</kw>
+<status status="PASS" starttime="20211015 18:33:24.599" endtime="20211015 18:33:25.126"/>
+</test>
+<status status="PASS" starttime="20211015 18:33:24.304" endtime="20211015 18:33:25.127"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Robot 2">Robot 2</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20211015 18:33:24.351" level="ERROR">Error in file '/Users/niramol.mo/robot_framework/robot_2.robot' on line 4: Importing library 'HttpLibrary.HTTP' failed: SyntaxError: invalid syntax (__init__.py, line 16)
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /usr/local/bin
+  /usr/local/Cellar/python@3.9/3.9.7_1/Frameworks/Python.framework/Versions/3.9/lib/python39.zip
+  /usr/local/Cellar/python@3.9/3.9.7_1/Frameworks/Python.framework/Versions/3.9/lib/python3.9
+  /usr/local/Cellar/python@3.9/3.9.7_1/Frameworks/Python.framework/Versions/3.9/lib/python3.9/lib-dynload
+  /Users/niramol.mo/Library/Python/3.9/lib/python/site-packages
+  /usr/local/lib/python3.9/site-packages</msg>
+<msg timestamp="20211015 18:33:24.499" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20211015 18:33:24.601" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+</errors>
+</robot>
